@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中秋祝福 | 月圆人团圆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0f1c3f 0%, #2a3f5f 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .moon {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 30% 30%, #fff9e6, #ffeb99);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 50px rgba(255, 235, 153, 0.7);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .moon-crater {
+            position: absolute;
+            background: rgba(230, 215, 170, 0.6);
+            border-radius: 50%;
+        }
+
+        .crater1 {
+            width: 30px;
+            height: 30px;
+            top: 40px;
+            left: 60px;
+        }
+
+        .crater2 {
+            width: 20px;
+            height: 20px;
+            top: 80px;
+            left: 120px;
+        }
+
+        .crater3 {
+            width: 25px;
+            height: 25px;
+            top: 130px;
+            left: 70px;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffeb99, #ffcc66);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #d1e0ff;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .greeting-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .greeting-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+            color: #ffeb99;
+        }
+
+        .lanterns {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+
+        .lantern {
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ff6b6b, #ff8e8e);
+            border-radius: 30px 30px 15px 15px;
+            position: relative;
+            animation: swing 4s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+        }
+
+        .lantern:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: #ffeb99;
+            top: -10px;
+            left: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .lantern:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffeb99;
+            bottom: -20px;
+            left: 25px;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .lantern:nth-child(2) {
+            background: linear-gradient(to bottom, #4ecdc4, #88d8d0);
+            animation-delay: 0.5s;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
+        }
+
+        .lantern:nth-child(3) {
+            background: linear-gradient(to bottom, #ffcc67, #ffdd99);
+            animation-delay: 1s;
+            box-shadow: 0 5px 15px rgba(255, 204, 103, 0.5);
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #a8c2ff;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .greeting-text {
+                font-size: 1.1rem;
+            }
+
+            .moon {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="moon">
+            <div class="moon-crater crater1"></div>
+            <div class="moon-crater crater2"></div>
+            <div class="moon-crater crater3"></div>
+        </div>
+
+        <h1 class="title">中秋佳节 · 月满人圆</h1>
+        <p class="subtitle">愿这轮明月带去我最真挚的祝福</p >
+
+        <div class="greeting-box">
+            <p class="greeting-text">亲爱的老八：</p >
+            <p class="greeting-text">又是一年月圆时，月光如练洒满人间。在这美好的中秋夜晚，愿皎洁的月光带去我最诚挚的问候与祝福。</p >
+            <p class="greeting-text">无论我们相隔多远，共赏的始终是同一轮明月。愿你的生活如这满月般圆满，事业如月光般明亮，幸福如桂香般绵长。</p >
+            <p class="greeting-text">中秋佳节，愿你与家人团聚，共享天伦；与朋友欢聚，畅谈人生。愿所有的美好都如约而至，所有的期盼都能如愿以偿。</p >
+            <p class="signature">你的朋友<br>中秋之夜</p >
+        </div>
+
+        <div class="lanterns">
+            <div class="lantern"></div>
+            <div class="lantern"></div>
+            <div class="lantern"></div>
+        </div>
+
+        <div class="footer">
+            <p>月圆人团圆 · 中秋快乐</p >
+        </div>
+    </div>
+
+    <script>
+        // 创建星空背景
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 100;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                // 随机大小
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                // 随机位置
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+
+                // 随机闪烁延迟
+                star.style.animationDelay = `${Math.random() * 4}s`;
+
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // 页面加载完成后创建星星
+        window.addEventListener('DOMContentLoaded', createStars);
+    </script>
+</body>
+</html>
