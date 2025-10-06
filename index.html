@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>涵🤍中秋快乐</title>
+    <iframe style="margin:10px 0 0 50px" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=27533136&auto=1&height=66"></iframe>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(#0a192f, #112940);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow: hidden;
+        }
+
+        .moon {
+            width: 180px;
+            height: 180px;
+            background: #fffbeb;
+            border-radius: 50%;
+            box-shadow: 0 0 60px #fff, 0 0 100px #fef3c7;
+            margin-bottom: 40px;
+            position: relative;
+            animation: moonFloat 8s ease-in-out infinite;
+        }
+
+        .rabbit {
+            width: 60px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50% 50% 30% 30%;
+            position: absolute;
+            bottom: 20px;
+            left: 60px;
+            animation: rabbitJump 3s ease infinite;
+        }
+        .rabbit::before {
+            content: "";
+            width: 10px;
+            height: 20px;
+            background: #fff;
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            border-radius: 50% 50% 0 0;
+        }
+        .rabbit::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #000;
+            position: absolute;
+            top: 5px;
+            left: 20px;
+            border-radius: 50%;
+        }
+
+        .greeting {
+            color: #fef3c7;
+            text-align: center;
+            text-shadow: 0 0 10px #fbbf24;
+            animation: fadeIn 3s ease;
+        }
+        .greeting h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .greeting p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        @keyframes moonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes rabbitJump {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .moon { width: 140px; height: 140px; }
+            .greeting h1 { font-size: 2rem; }
+            .greeting p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="moon">
+
+        <div class="rabbit"></div>
+    </div>
+
+    <div class="greeting">
+        <h1>中秋佳节 阖家安康</h1>
+        <p>To My Girl：</p >
+        <p>一轮明月，满含思念；一块月饼，承载团圆。</p >
+        <p>愿这个中秋，月光所照，皆是故友；</p >
+        <p>愿往后余生，平安喜乐，万事顺遂；</p >
+        <p>中秋快乐，幸福常伴！🌃</p >
+        <p>今夜 月亮铺开银亮的绸缎
+每一道褶皱里
+都藏着桂树年轮
+</p>
+        <p>我们端坐于光的流域
+瓷杯浮起金蕊
+指间有暗香流动
+</p>
+        <p>晚风翻阅云页
+星河在茶汤中舒展
+所有缺憾都化作
+天鹅颈项的曲线
+</p>
+        <p>轻轻摇晃的夜晚啊
+碎银在窗格上重新凝聚
+成圆满的银币</p>
+    </div>
+
+    <script>
+        // 可选：添加点击月亮切换祝福语功能
+        const greetings = [
+            "愿月光温暖你的心，月饼甜透你的生活，家人常伴你的左右～",
+        ];
+        let currentIndex = 0;
+        const moon = document.querySelector('.moon');
+        const pElement = document.querySelector('.greeting p:last-child');
+
+        moon.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % greetings.length;
+            pElement.textContent = greetings[currentIndex];
+            // 添加点击动画
+            pElement.style.animation = "none";
+            setTimeout(() => {
+                pElement.style.animation = "fadeIn 0.8s ease";
+            }, 10);
+        });
+    </script>
+</body>
+</html>
